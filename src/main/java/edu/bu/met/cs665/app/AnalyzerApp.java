@@ -1,7 +1,5 @@
 package edu.bu.met.cs665.app;
 
-import edu.bu.met.cs665.app.analyzer.Potentiostat;
-
 // Main Class
 public class AnalyzerApp {
 
@@ -9,14 +7,18 @@ public class AnalyzerApp {
 
   private AnalyzerApp() {}
 
-  static AnalyzerApp getAnalyzerApp(){
+  private int[][] data;
+
+  public static AnalyzerApp getAnalyzerApp(){
     return analyzerApp;
   }
 
   public static void main(String[] args) {
     analyzerApp.initialize();
+  }
 
-
+  public void initDataStructure(int points, int channels) {
+    data = new int[points][channels];
   }
 
   private void initialize() {
@@ -25,12 +27,36 @@ public class AnalyzerApp {
 
     //ExperimentLoader experimentLoader = new ExperimentLoader(new LoadInstrumentState());
     //experimentLoader.execute();
-    Potentiostat potentiostat = new Potentiostat(null);
-    potentiostat.loadExperiment();
+//    Analyzer potentiostat = new Potentiostat(null);
+//    potentiostat.loadExperiment();
+//    potentiostat.startExperiment();
+//    potentiostat.stopExperiment();
+//    potentiostat.getControllerInfo();
+//    potentiostat.collectData();
 
+//    displayData();
+  }
 
+  public synchronized void updateData(int address, int[] dataPoint) {
+    data[address]= dataPoint;
+  }
 
+  private void displayData() {
+    // Allow enough time for the DataCollectorThread to init the data structure
+    while (data == null) {}
+    int position = 0;
+    while (position < 20)
+    {
+      if (data[position][0] != 0) {
+        System.out.println(data[position][0] + "\t" +
+                data[position][1] + "\t" +
+                data[position][2] + "\t");
+        position++;
+      }
+      Thread.yield();
+    }
 
   }
+
 
 }

@@ -11,7 +11,7 @@ public abstract class Analyzer {
 
   public abstract void loadExperiment();
 
-  public abstract void runExperiment();
+  public abstract void startExperiment();
 
   public abstract void stopExperiment();
 

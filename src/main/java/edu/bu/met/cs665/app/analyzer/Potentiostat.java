@@ -14,22 +14,27 @@ public class Potentiostat extends Analyzer{
   }
 
   @Override
-  public void runExperiment() {
-
+  public void startExperiment() {
+    System.out.println("Starting Analyzer...");
   }
 
   @Override
   public void stopExperiment() {
-
+    System.out.println("Stopping Analyzer...");
   }
 
   @Override
   public void collectData() {
-
+    System.out.println("Starting Data Collector");
+    Thread thread = new Thread(new DataCollector());
+    thread.setDaemon(true);
+    thread.setName("DataCollectorThread");
+    thread.start();
   }
 
   @Override
   public void getControllerInfo() {
-
+    System.out.println("Querying analyzer for info...");
   }
+
 }
