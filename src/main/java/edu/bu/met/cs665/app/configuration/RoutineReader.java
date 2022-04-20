@@ -1,4 +1,4 @@
-package edu.bu.met.cs665.app.configuration3;
+package edu.bu.met.cs665.app.configuration;
 
 /**
  * This class reads routine file.

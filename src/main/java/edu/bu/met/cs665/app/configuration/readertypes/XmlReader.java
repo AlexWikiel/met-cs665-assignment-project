@@ -1,4 +1,4 @@
-package edu.bu.met.cs665.app.configuration;
+package edu.bu.met.cs665.app.configuration.readertypes;
 
 public class XmlReader extends TextFileReader{
     protected Configuration DeserializeXml(String xmlDocument, Configuration config){

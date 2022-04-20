@@ -1,4 +1,4 @@
-package edu.bu.met.cs665.app.configuration3;
+package edu.bu.met.cs665.app.configuration;
 
 /**
  * Defines the necessary components to use an iterator pattern

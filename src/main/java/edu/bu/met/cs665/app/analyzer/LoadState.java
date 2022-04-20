@@ -1,7 +1,7 @@
 package edu.bu.met.cs665.app.analyzer;
 
-import edu.bu.met.cs665.app.configuration.TextFileReader;
-import edu.bu.met.cs665.app.configuration.types.ProcedureEvent;
+import edu.bu.met.cs665.app.configuration.readertypes.TextFileReader;
+import edu.bu.met.cs665.app.configuration.ProcedureEvent;
 
 public abstract class LoadState extends TextFileReader {
   protected ExperimentLoader experimentLoader;

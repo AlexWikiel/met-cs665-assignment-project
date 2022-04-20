@@ -1,4 +1,4 @@
-package edu.bu.met.cs665.app.configuration3;
+package edu.bu.met.cs665.app.configuration;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package edu.bu.met.cs665.app.configuration3;
+package edu.bu.met.cs665.app.configuration;
 
 /**
  * The class that will build the SystemConfig object via the specified readers.  This utilizes the builder pattern

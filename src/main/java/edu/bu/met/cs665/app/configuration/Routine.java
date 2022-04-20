@@ -1,4 +1,4 @@
-package edu.bu.met.cs665.app.configuration3;
+package edu.bu.met.cs665.app.configuration;
 
 /**
  * The class holds information about the entire routine, including name, code, and path plus the procedures that

@@ -1,6 +1,6 @@
 package edu.bu.met.cs665.app.analyzer;
 
-import edu.bu.met.cs665.app.configuration.types.ProcedureEvent;
+import edu.bu.met.cs665.app.configuration.ProcedureEvent;
 
 public class LoadInstrumentState extends LoadState {
   public LoadInstrumentState(ProcedureEvent procedureEvent) {

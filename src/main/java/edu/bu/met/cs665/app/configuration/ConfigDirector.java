@@ -1,4 +1,4 @@
-package edu.bu.met.cs665.app.configuration3;
+package edu.bu.met.cs665.app.configuration;
 
 /**
  * The director class serves as a place to control the builder pattern that will create the configuration based on the
