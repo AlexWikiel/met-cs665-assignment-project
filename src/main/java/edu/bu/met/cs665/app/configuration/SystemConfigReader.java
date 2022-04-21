@@ -1,5 +1,7 @@
 package edu.bu.met.cs665.app.configuration;
 
+import edu.bu.met.cs665.app.configuration.types.SystemConfig;
+
 /**
  * This class reads main configuration.
  * TODO This is a fake implementation for this project to create dummy data.
@@ -7,8 +9,8 @@ package edu.bu.met.cs665.app.configuration;
 public class SystemConfigReader {
   private SystemConfig systemConfig;
 
-  public SystemConfigReader(SystemConfig scon) {
-    this.systemConfig = scon;
+  public SystemConfigReader(SystemConfig systemConfig) {
+    this.systemConfig = systemConfig;
   }
 
   public void read() {

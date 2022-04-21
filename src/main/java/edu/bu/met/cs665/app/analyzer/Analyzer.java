@@ -1,6 +1,6 @@
 package edu.bu.met.cs665.app.analyzer;
 
-import edu.bu.met.cs665.app.configuration.ProcedureEvent;
+import edu.bu.met.cs665.app.configuration.types.ProcedureEvent;
 
 public abstract class Analyzer {
   protected ProcedureEvent procedureEvent;

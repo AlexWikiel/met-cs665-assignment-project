@@ -17,14 +17,4 @@ public class ConfigDirector {
     this.configuration.readRoutine();
     this.configuration.readProcedure();
   }
-
-  public static void main(String[] args) {
-    ConfigDirector configDirector = new ConfigDirector();
-    Configuration configuration = new ConfigBuilder();
-    configDirector.setBuilder(configuration);
-    configDirector.readConfiguration();
-    ;
-  }
-
-
 }

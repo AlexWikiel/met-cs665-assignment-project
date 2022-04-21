@@ -1,5 +1,8 @@
 package edu.bu.met.cs665.app.configuration;
 
+import edu.bu.met.cs665.app.configuration.types.Procedure;
+import edu.bu.met.cs665.app.configuration.types.ProcedureEvent;
+
 /**
  * This class reads procedure file.
  * TODO This is a fake implementation for this project to create dummy data.

@@ -1,5 +1,9 @@
 package edu.bu.met.cs665.app;
 
+import edu.bu.met.cs665.app.configuration.ConfigBuilder;
+import edu.bu.met.cs665.app.configuration.ConfigDirector;
+import edu.bu.met.cs665.app.configuration.Configuration;
+
 // Main Class
 public class AnalyzerApp {
 
@@ -22,19 +26,11 @@ public class AnalyzerApp {
   }
 
   private void initialize() {
-    //Config.getConfig();
-    //ExperimentLoader experimentLoader = new ExperimentLoader(new LoadinstrumentState());
-
-    //ExperimentLoader experimentLoader = new ExperimentLoader(new LoadInstrumentState());
-    //experimentLoader.execute();
-//    Analyzer potentiostat = new Potentiostat(null);
-//    potentiostat.loadExperiment();
-//    potentiostat.startExperiment();
-//    potentiostat.stopExperiment();
-//    potentiostat.getControllerInfo();
-//    potentiostat.collectData();
-
-//    displayData();
+    ConfigDirector configDirector = new ConfigDirector();
+    Configuration configuration = new ConfigBuilder();
+    configDirector.setBuilder(configuration);
+    configDirector.readConfiguration();
+    ;
   }
 
   public synchronized void updateData(int address, int[] dataPoint) {

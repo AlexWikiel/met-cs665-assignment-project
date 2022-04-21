@@ -1,5 +1,9 @@
 package edu.bu.met.cs665.app.configuration;
 
+import edu.bu.met.cs665.app.configuration.types.Procedure;
+import edu.bu.met.cs665.app.configuration.types.Routine;
+import edu.bu.met.cs665.app.configuration.types.SystemConfig;
+
 /**
  * The class that will build the SystemConfig object via the specified readers.  This utilizes the builder pattern
  */

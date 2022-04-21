@@ -1,4 +1,4 @@
-package edu.bu.met.cs665.app.configuration;
+package edu.bu.met.cs665.app.configuration.types;
 
 /**
  * This class holds the file paths of the files that would need to be transmitted to the analyzer.  These files hold all
