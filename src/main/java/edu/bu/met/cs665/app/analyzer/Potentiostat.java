@@ -36,5 +36,4 @@ public class Potentiostat extends Analyzer{
   public void getControllerInfo() {
     System.out.println("Querying analyzer for info...");
   }
-
 }

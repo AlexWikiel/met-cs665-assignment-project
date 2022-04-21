@@ -25,6 +25,24 @@ public class SystemConfig implements Iteratable<Routine> {
   public void addRoutine(String name){
     routines.put(name,new Routine());
     routineOrder.add(name);
+    setRoutineName(name,name);
+  }
+
+  /**
+   * Returns a routine found by the StringKey in the hashmap.
+   * @param name
+   */
+  public Routine getRoutine(String name){
+    return routines.get(name);
+  }
+
+  /**
+   * Set the name in routine object that holds teh routine file.
+   * @param routine the routine to update
+   * @param name the name to update
+   */
+  public void setRoutineName(String routine,String name){
+    routines.get(routine).setName(name);
   }
 
   /**
@@ -45,6 +63,14 @@ public class SystemConfig implements Iteratable<Routine> {
    */
   public void setRoutineCode(String routine, String code){
     routines.get(routine).setCode(code);
+  }
+
+  /**
+   * Returns an arraylist that holds the name/keys of all available analysis base on config.
+   * @return ArrayList that hold the routine keys
+   */
+  public ArrayList<String> getRoutineOrder() {
+    return routineOrder;
   }
 
   /**

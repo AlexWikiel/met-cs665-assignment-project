@@ -16,8 +16,8 @@ public class ConfigBuilder implements Configuration {
   @Override
   public void readSystemConfig() {
     this.systemConfig =  new SystemConfig();
-    SystemConfigReader sconReader = new SystemConfigReader(systemConfig);
-    sconReader.read();
+    SystemConfigReader systemConfigReader = new SystemConfigReader(systemConfig);
+    systemConfigReader.read();
   }
 
   /**
@@ -46,5 +46,10 @@ public class ConfigBuilder implements Configuration {
         procedureReader.read();
       }
     }
+  }
+
+  @Override
+  public SystemConfig getConfig() {
+    return systemConfig;
   }
 }

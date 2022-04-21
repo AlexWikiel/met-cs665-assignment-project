@@ -1,19 +1,41 @@
 package edu.bu.met.cs665.app;
 
+import edu.bu.met.cs665.app.analyzer.Potentiostat;
 import edu.bu.met.cs665.app.configuration.ConfigBuilder;
 import edu.bu.met.cs665.app.configuration.ConfigDirector;
 import edu.bu.met.cs665.app.configuration.Configuration;
+import edu.bu.met.cs665.app.configuration.types.Procedure;
+import edu.bu.met.cs665.app.configuration.types.ProcedureEvent;
+import edu.bu.met.cs665.app.configuration.types.Routine;
+import edu.bu.met.cs665.app.configuration.types.SystemConfig;
 
-// Main Class
+/**
+ * The brain that connects all the other parts together, this is the main hub of the entire analyzer.
+ */
 public class AnalyzerApp {
 
-  private static AnalyzerApp analyzerApp = new AnalyzerApp();
+  private static AnalyzerApp analyzerApp;
+  private SystemConfig config;
+  private Routine currentRoutine;
+  private Procedure currentProcedure;
+  private ProcedureEvent currentProcedureEvent;
 
+  /**
+   * Private constructor so we can use the singleton pattern
+   */
   private AnalyzerApp() {}
+
 
   private int[][] data;
 
-  public static AnalyzerApp getAnalyzerApp(){
+  public SystemConfig getConfig(){
+    return config;
+  }
+
+  public static AnalyzerApp getAnalyzerApp() {
+    if (analyzerApp == null) {
+      initialize();
+    }
     return analyzerApp;
   }
 
@@ -25,12 +47,13 @@ public class AnalyzerApp {
     data = new int[points][channels];
   }
 
-  private void initialize() {
+  private static void initialize() {
+    analyzerApp = new AnalyzerApp();
     ConfigDirector configDirector = new ConfigDirector();
-    Configuration configuration = new ConfigBuilder();
-    configDirector.setBuilder(configuration);
+    Configuration configBuilder = new ConfigBuilder();
+    configDirector.setBuilder(configBuilder);
     configDirector.readConfiguration();
-    ;
+    analyzerApp.config = configBuilder.getConfig();
   }
 
   public synchronized void updateData(int address, int[] dataPoint) {
@@ -51,8 +74,31 @@ public class AnalyzerApp {
       }
       Thread.yield();
     }
-
   }
 
 
+  public void routineProcessor(Routine routine) {
+    currentRoutine = routine; // set current tracker
+    while(routine.hasNext()) {
+      Procedure procedure = routine.getNext();
+      procedureProcessor(procedure);
+    }
+    currentRoutine = null; // Reset current tracker
+  }
+
+  public void procedureProcessor(Procedure procedure) {
+    currentProcedure = currentProcedure; // set current tracker
+    while(procedure.hasNext()) {
+      ProcedureEvent procedureEvent = procedure.getNext();
+
+      currentProcedureEvent = procedureEvent; // set current tracker
+      Potentiostat potentiostat = new Potentiostat(procedureEvent);
+      potentiostat.loadExperiment();
+      potentiostat.startExperiment();
+      potentiostat.collectData();
+      displayData();
+      currentProcedureEvent = null; // Reset current tracker
+    }
+    currentProcedure = null; // Reset current tracker
+  }
 }
