@@ -1,11 +1,10 @@
-package edu.bu.met.cs665.app.configuration;
+package edu.bu.met.cs665.app.configuration.readertypes;
 
 import edu.bu.met.cs665.app.configuration.types.Procedure;
 import edu.bu.met.cs665.app.configuration.types.ProcedureEvent;
 
 /**
- * This class reads procedure file.
- * TODO This is a fake implementation for this project to create dummy data.
+ * This class reads procedure file. This is a fake implementation for this project to create dummy data.
  */
 public class ProcedureReader {
   private Procedure procedure;

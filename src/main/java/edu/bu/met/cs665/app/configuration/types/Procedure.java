@@ -60,7 +60,6 @@ public class Procedure implements Iteratable {
     }
   }
 
-
   /**
    * checks if another procedure event is in the array.  Utilizes the iterator pattern.
    * @return
@@ -94,5 +93,10 @@ public class Procedure implements Iteratable {
   @Override
   public void reset() {
     iterator = 0;
+  }
+
+  @Override
+  public String toString() {
+    return name;
   }
 }

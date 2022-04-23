@@ -1,10 +1,9 @@
-package edu.bu.met.cs665.app.configuration;
+package edu.bu.met.cs665.app.configuration.readertypes;
 
 import edu.bu.met.cs665.app.configuration.types.SystemConfig;
 
 /**
- * This class reads main configuration.
- * TODO This is a fake implementation for this project to create dummy data.
+ * This class reads main configuration. This is a fake implementation for this project to create dummy data.
  */
 public class SystemConfigReader {
   private SystemConfig systemConfig;

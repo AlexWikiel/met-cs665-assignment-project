@@ -77,7 +77,6 @@ public class Routine implements Iteratable<Procedure> {
       }
   }
 
-
   /**
    * checks if another procedure is in the array.  Utilizes the iterator pattern.
    * @return
