@@ -97,9 +97,18 @@ public class AnalyzerStatus implements StatusInformer {
 
   @Override
   public void update(String update) {
+    if (listeners != null) {
       for (Listener listener : listeners) {
         listener.update(update);
       }
+    }
+  }
+
+  /**
+   * This  overwrites the instastance of AnalyzerApp, and is used for unit testing.
+   */
+  public static void resetAnalazerApp() {
+    analyzerStatus = new AnalyzerStatus();
   }
 
 }

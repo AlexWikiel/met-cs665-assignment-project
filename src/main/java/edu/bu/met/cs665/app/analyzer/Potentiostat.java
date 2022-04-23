@@ -26,6 +26,10 @@ public class Potentiostat extends Analyzer{
   @Override
   public void loadExperiment() {
     ExperimentLoader experimentLoader = new ExperimentLoader(new LoadInstrumentState(procedureEvent));
+    // Execute all loading all files
+    while (AnalyzerStatus.getAnalyzerStatus().getSystemStatus() != SystemStatus.uploadStep) {
+      experimentLoader.execute();
+    }
   }
 
   /**

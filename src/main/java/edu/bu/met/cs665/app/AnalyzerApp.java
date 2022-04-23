@@ -75,4 +75,11 @@ public class AnalyzerApp {
     routineThread.setName("routineProcessor");
     routineThread.start();
   }
+
+  /**
+   * This  overwrites the instastance of AnalyzerApp, and is used for unit testing.
+   */
+  public static void resetAnalazerApp() {
+    analyzerApp = new AnalyzerApp();
+  }
 }

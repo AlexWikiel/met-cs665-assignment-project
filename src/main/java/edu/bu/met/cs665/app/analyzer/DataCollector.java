@@ -58,7 +58,8 @@ public class DataCollector implements Runnable{
 
       // a sleep is here simply to slow down the simulation for a more realistic affect, in real life
       // data point are generated considerably slower than this loop executes. 100millis works nicely
-      // and looks more realistic to a real analyzer.
+      // and looks more realistic. At zero, we get to really make sure the threads are communicating safely,
+      // so it's a good test.
       try {
         Thread.sleep(0);
       } catch (InterruptedException e) {
@@ -80,7 +81,7 @@ public class DataCollector implements Runnable{
   }
 
   /**
-   * Stop the loop from continuing. If we had a stop procedure this would kill the loop, effectively ending  this
+   * Stop the loop from continuing. If we had a stop procedure this would kill the loop, and effectively ending  this
    * thread.
    */
   public synchronized void stopPolling() {
