@@ -18,7 +18,7 @@ public class DataCollectorTest {
 
   @Before
   public void setUp() throws Exception {
-    AnalyzerApp.resetAnalazerApp();
+    AnalyzerApp.resetAnalyzerApp();
     dataCollector = new DataCollector();
   }
 

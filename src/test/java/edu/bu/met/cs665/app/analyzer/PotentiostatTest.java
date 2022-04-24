@@ -20,8 +20,8 @@ public class PotentiostatTest {
 
   @Before
   public void setUp() {
-    AnalyzerApp.resetAnalazerApp();
-    AnalyzerStatus.resetAnalazerApp();
+    AnalyzerApp.resetAnalyzerApp();
+    AnalyzerStatus.resetAnalyzerStatus();
     ProcedureEvent procedureEvent = new ProcedureEvent();
     procedureEvent.setName("potentiostatTest");
     potentiostat = new Potentiostat(procedureEvent);

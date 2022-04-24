@@ -41,6 +41,12 @@ public class ProcedureTest {
     assertEquals("testPath", procedure.getPath());
   }
 
+  @Test
+  public void getProcedures() {
+    procedure.createProcedureEvents(5);
+    ProcedureEvent[] proceduresEvents = procedure.getProcedureEvents();
+    assertEquals(5,proceduresEvents.length);
+  }
 
   /**
    * Create 5 procedure events and then count them to compare if 5 were created.

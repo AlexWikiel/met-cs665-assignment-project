@@ -46,7 +46,7 @@ public class ConsoleDisplay implements Listener {
           AnalyzerStatus.getAnalyzerStatus().setSystemStatus(SystemStatus.processingRoutine);
           String routineName = systemConfig.getRoutineOrder().get(userIn - 1); // subtract one to go to zero-indexing
           System.out.println("yes we can analyze this: " + routineName);
-          analyzerApp.routineProcessor(systemConfig.getRoutine(routineName));
+          analyzerApp.startRoutineProcessor(systemConfig.getRoutine(routineName));
         }
       }
 

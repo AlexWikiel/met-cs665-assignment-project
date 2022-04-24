@@ -77,8 +77,8 @@ public class ProcedureEvent {
    * @param stepPath or procedure event
    */
   public void setStepPath(String stepPath) {
-    if (this.fillingPath == null) {
-      this.fillingPath = stepPath;
+    if (this.stepPath == null) {
+      this.stepPath = stepPath;
     }
   }
 }

@@ -1,12 +1,12 @@
 package edu.bu.met.cs665.app.configuration.types;
 
-import edu.bu.met.cs665.app.configuration.Iteratable;
+import edu.bu.met.cs665.app.configuration.Iterable;
 
 /**
  * The class holds information about the entire routine, including name, code, and path plus the procedures that
  * make it up.  We utilize the iterator pattern to make iteration of the procedures simpler.
  */
-public class Routine implements Iteratable<Procedure> {
+public class Routine implements Iterable<Procedure> {
 
   private String name;
   private String path;
@@ -39,7 +39,7 @@ public class Routine implements Iteratable<Procedure> {
    * @param code or procedure event
    */
   public void setCode(String code) {
-    if (this.name == null) {
+    if (this.code == null) {
     this.code = code;
     }
   }
@@ -53,7 +53,7 @@ public class Routine implements Iteratable<Procedure> {
    * @param path or procedure event
    */
   public void setPath(String path) {
-    if (this.name == null) {
+    if (this.path == null) {
     this.path = path;
     }
   }

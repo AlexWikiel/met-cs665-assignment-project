@@ -16,7 +16,7 @@ public class ExperimentLoaderTest {
 
   @Before
   public void setUp() throws Exception {
-    AnalyzerStatus.resetAnalazerApp();
+    AnalyzerStatus.resetAnalyzerStatus();
     testProcedureEvent = new ProcedureEvent();
     testLoadInstrumentState = new LoadInstrumentState(testProcedureEvent);
     testExperimentLoader = new ExperimentLoader(testLoadInstrumentState);

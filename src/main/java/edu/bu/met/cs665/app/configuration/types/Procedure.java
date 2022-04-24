@@ -1,12 +1,12 @@
 package edu.bu.met.cs665.app.configuration.types;
 
-import edu.bu.met.cs665.app.configuration.Iteratable;
+import edu.bu.met.cs665.app.configuration.Iterable;
 
 /**
  * The class holds information about the entire procedure, including name and path plus the procedure events that
  * make it up.  We utilize the iterator pattern to make iteration of the procedure events simpler.
  */
-public class Procedure implements Iteratable {
+public class Procedure implements Iterable {
 
   private String name;
   private String path;

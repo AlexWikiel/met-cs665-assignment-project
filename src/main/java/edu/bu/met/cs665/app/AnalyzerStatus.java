@@ -27,10 +27,6 @@ public class AnalyzerStatus implements StatusInformer {
     return analyzerStatus;
   }
 
-  public void setAnalyzerStatus(AnalyzerStatus analyzerStatus) {
-    this.analyzerStatus = analyzerStatus;
-  }
-
   public SystemStatus getSystemStatus() {
     return systemStatus;
   }
@@ -105,9 +101,9 @@ public class AnalyzerStatus implements StatusInformer {
   }
 
   /**
-   * This  overwrites the instastance of AnalyzerApp, and is used for unit testing.
+   * This  overwrites the instance of AnalyzerApp, and is used for unit testing.
    */
-  public static void resetAnalazerApp() {
+  public static void resetAnalyzerStatus() {
     analyzerStatus = new AnalyzerStatus();
   }
 

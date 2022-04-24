@@ -1,6 +1,6 @@
 package edu.bu.met.cs665.app.configuration.types;
 
-import edu.bu.met.cs665.app.configuration.Iteratable;
+import edu.bu.met.cs665.app.configuration.Iterable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +8,7 @@ import java.util.HashMap;
 /**
  * Represents the entire configuration of the system. Utilizes iterator pattern.
  */
-public class SystemConfig implements Iteratable<Routine> {
+public class SystemConfig implements Iterable<Routine> {
 
   // Holds the different routines described the systemc configuration
   // The list serves to hold an order so we can iterate in order through the hashmap

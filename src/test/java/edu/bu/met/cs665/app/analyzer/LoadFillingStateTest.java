@@ -15,7 +15,7 @@ public class LoadFillingStateTest {
 
   @Before
   public void setUp() {
-    AnalyzerStatus.resetAnalazerApp();
+    AnalyzerStatus.resetAnalyzerStatus();
     loadMethodState = new LoadMethodState(new ProcedureEvent());
   }
 
