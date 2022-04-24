@@ -2,12 +2,11 @@ package edu.bu.met.cs665.app;
 
 import edu.bu.met.cs665.app.configuration.types.Routine;
 import edu.bu.met.cs665.app.configuration.types.SystemConfig;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * The user interface for this application
+ * The user interface for this application.
  */
 public class ConsoleDisplay implements Listener {
   private AnalyzerApp analyzerApp;
@@ -16,31 +15,34 @@ public class ConsoleDisplay implements Listener {
   private SystemConfig systemConfig;
 
   /**
-   * The entrance to th eprogram
-   * @param args
+   * The entrance to the program.
+   * @param args runtime arguments not used.
    */
   public static void main(String[] args) {
     ConsoleDisplay consoleDisplay = new ConsoleDisplay();
     consoleDisplay.runProgram();
   }
 
-  // inject the config and instantiate the analyzerApp
+  /**
+   * Inject the config and instantiate the analyzerApp.
+   */
   public ConsoleDisplay() {
     analyzerApp = AnalyzerApp.getAnalyzerApp();
     systemConfig = analyzerApp.getConfig();
     AnalyzerStatus.getAnalyzerStatus().attach(this);
   }
 
-  // This is the loop that runs the entire program, this would be eliminated if we went to some sort of GUI
+  // This is the loop that runs the entire program, this would be eliminated if we went to some
+  // sort of GUI
   private  void runProgram() {
-    while(true) {
+    while (true) {
 
-      if (AnalyzerStatus.getAnalyzerStatus().getSystemStatus() == SystemStatus.runningExperiment){
+      if (AnalyzerStatus.getAnalyzerStatus().getSystemStatus() == SystemStatus.runningExperiment) {
         displayData();
       }
 
       if (AnalyzerStatus.getAnalyzerStatus().getSystemStatus() == SystemStatus.idle) {
-        DisplayAvailableAnalyses();
+        displayAvailableAnalyses();
         int userIn = getInput();
         //int userIn = 1;
         if (userIn == 0) {
@@ -49,7 +51,8 @@ public class ConsoleDisplay implements Listener {
           break;
         } else if (validChoices.contains(userIn)) {
           AnalyzerStatus.getAnalyzerStatus().setSystemStatus(SystemStatus.processingRoutine);
-          String routineName = systemConfig.getRoutineOrder().get(userIn - 1); // subtract one to go to zero-indexing
+          String routineName = systemConfig.getRoutineOrder().get(userIn - 1); // subtract one to
+          // go to zero-indexing
           System.out.println("yes we can analyze this: " + routineName);
           analyzerApp.startRoutineProcessor(systemConfig.getRoutine(routineName));
         }
@@ -63,7 +66,7 @@ public class ConsoleDisplay implements Listener {
 
       ArrayList<int[]> data = AnalyzerApp.getAnalyzerApp().getData();
       if (data != null && data.size() > 0) {
-        while(data.size() > 0){
+        while (data.size() > 0) {
 
           int[] datum = data.remove(0);
           StringBuffer dataToDisplay = new StringBuffer();
@@ -77,8 +80,7 @@ public class ConsoleDisplay implements Listener {
   }
 
   // Get user input and try to parse it
-  private int getInput()
-  {
+  private int getInput() {
     int selection;
     String userIn = scanner.nextLine();
 
@@ -91,14 +93,14 @@ public class ConsoleDisplay implements Listener {
   }
 
   // Display the available choices
-  private void DisplayAvailableAnalyses() {
+  private void displayAvailableAnalyses() {
     validChoices = new ArrayList<>();
     System.out.println("\n\nAvailable Analysis:\n");
     int choiceNumber = 1;
     while (systemConfig.hasNext()) {
       Routine routine = systemConfig.getNext();
       String routineName = routine.getName();
-      System.out.println("\t" + choiceNumber + " - "+routineName);
+      System.out.println("\t" + choiceNumber + " - " + routineName);
       validChoices.add(choiceNumber);
       choiceNumber++;
     }
@@ -109,7 +111,7 @@ public class ConsoleDisplay implements Listener {
 
   /**
    * This is the update method that will be fired if Status inform fires this event.
-   * @param update
+   * @param update string update for display.
    */
   @Override
   public void update(String update) {

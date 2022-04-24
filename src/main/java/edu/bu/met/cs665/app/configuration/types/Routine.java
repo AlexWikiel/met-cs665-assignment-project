@@ -3,8 +3,9 @@ package edu.bu.met.cs665.app.configuration.types;
 import edu.bu.met.cs665.app.configuration.Iterable;
 
 /**
- * The class holds information about the entire routine, including name, code, and path plus the procedures that
- * make it up.  We utilize the iterator pattern to make iteration of the procedures simpler.
+ * The class holds information about the entire routine, including name, code, and path plus the
+ * procedures that make it up.  We utilize the iterator pattern to make iteration of the procedures
+ * simpler.
  */
 public class Routine implements Iterable<Procedure> {
 
@@ -13,7 +14,8 @@ public class Routine implements Iterable<Procedure> {
   private String code;
   private Procedure[] procedures;
 
-  // Iterator serves as the index of which item we are currently viewing and is necessary for the iterator pattern
+  // Iterator serves as the index of which item we are currently viewing and is necessary for the
+  // iterator pattern
   int iterator = 0;
 
   public String getName() {
@@ -26,7 +28,7 @@ public class Routine implements Iterable<Procedure> {
    */
   public void setName(String name) {
     if (this.name == null) {
-    this.name = name;
+      this.name = name;
     }
   }
 
@@ -40,7 +42,7 @@ public class Routine implements Iterable<Procedure> {
    */
   public void setCode(String code) {
     if (this.code == null) {
-    this.code = code;
+      this.code = code;
     }
   }
 
@@ -54,7 +56,7 @@ public class Routine implements Iterable<Procedure> {
    */
   public void setPath(String path) {
     if (this.path == null) {
-    this.path = path;
+      this.path = path;
     }
   }
 
@@ -64,9 +66,9 @@ public class Routine implements Iterable<Procedure> {
    */
   public void createProcedures(int count) {
     this.procedures = new Procedure[count];
-      for (int i=0; i<count; i++){
-        this.procedures[i] = new Procedure();
-      }
+    for (int i = 0; i < count; i++) {
+      this.procedures[i] = new Procedure();
+    }
   }
 
   /**
@@ -75,7 +77,7 @@ public class Routine implements Iterable<Procedure> {
    */
   @Override
   public boolean hasNext() {
-    if (procedures.length > 0 && iterator < procedures.length ) {
+    if (procedures.length > 0 && iterator < procedures.length) {
       return true;
     } else {
       reset(); // reset the iterator so we can loop again

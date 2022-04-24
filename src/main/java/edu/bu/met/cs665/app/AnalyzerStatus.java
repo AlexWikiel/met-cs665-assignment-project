@@ -3,7 +3,6 @@ package edu.bu.met.cs665.app;
 import edu.bu.met.cs665.app.configuration.types.Procedure;
 import edu.bu.met.cs665.app.configuration.types.ProcedureEvent;
 import edu.bu.met.cs665.app.configuration.types.Routine;
-
 import java.util.ArrayList;
 
 /**
@@ -20,6 +19,10 @@ public class AnalyzerStatus implements StatusInformer {
   private Procedure currentProcedure;
   private ProcedureEvent currentProcedureEvent;
 
+  /**
+   * returns an instance of the singleton AnalyzerStatus.
+   * @return
+   */
   public static AnalyzerStatus getAnalyzerStatus() {
     if (analyzerStatus == null) {
       analyzerStatus = new AnalyzerStatus();
@@ -36,40 +39,63 @@ public class AnalyzerStatus implements StatusInformer {
     update("System status has changed to: " + systemStatus.toString());
   }
 
+  /**
+   * Returns the current routine that was selected.
+   * @return
+   */
   public Routine getCurrentRoutine() {
     return currentRoutine;
   }
 
+  /**
+   * Set the current selected routine.
+   * @param currentRoutine selected.
+   */
   public void setCurrentRoutine(Routine currentRoutine) {
     this.currentRoutine = currentRoutine;
-    if (currentRoutine != null){
+    if (currentRoutine != null) {
       update("Current Selected Routine is : " + currentRoutine.getName());
-    }
-    else {
+    } else {
       update("*** Routine Complete...");
     }
   }
 
+  /**
+   * Returns the currently selected routine.
+   * @return
+   */
   public Procedure getCurrentProcedure() {
     return currentProcedure;
   }
 
+  /**
+   * Set the current routine that is running.
+   * @param currentProcedure that is running.
+   */
   public void setCurrentProcedure(Procedure currentProcedure) {
     this.currentProcedure = currentProcedure;
-    if (currentProcedure != null){
+    if (currentProcedure != null) {
       update("Current Procedure is : " + currentProcedure.getName());
     } else {
       update("*** Procedure Complete...");
     }
   }
 
+  /**
+   * get the current procedure event that is running.
+   * @return
+   */
   public ProcedureEvent getCurrentProcedureEvent() {
     return currentProcedureEvent;
   }
 
+  /**
+   * Set the current procedure event that is running.
+   * @param currentProcedureEvent the procedure event that is running.
+   */
   public void setCurrentProcedureEvent(ProcedureEvent currentProcedureEvent) {
     this.currentProcedureEvent = currentProcedureEvent;
-    if (currentProcedureEvent != null){
+    if (currentProcedureEvent != null) {
       update("Current Procedure Event is : " + currentProcedureEvent.getName());
     } else {
       update("*** Procedure Event Complete...");

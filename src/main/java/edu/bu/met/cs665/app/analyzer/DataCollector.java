@@ -3,14 +3,14 @@ package edu.bu.met.cs665.app.analyzer;
 import edu.bu.met.cs665.app.AnalyzerApp;
 import edu.bu.met.cs665.app.AnalyzerStatus;
 import edu.bu.met.cs665.app.SystemStatus;
-
 import java.util.Random;
 
 /**
- * Runs on a designated thread and repeatedly pings the external analyzer to get data as it is ready.
- * This version of data collector is simple simulation that generates 20 data points with Java's random function.
+ * Runs on a designated thread and repeatedly pings the external analyzer to get data as it is
+ * ready.  This version of data collector is simple simulation that generates 20 data points with
+ * Java's random function.
  */
-public class DataCollector implements Runnable{
+public class DataCollector implements Runnable {
   // used for fake data creation
   private Random random = new Random();
   private static final int BOUND = 200;
@@ -33,15 +33,16 @@ public class DataCollector implements Runnable{
     AnalyzerApp.getAnalyzerApp().initDataStructure(); // init main thread data structure
 
     int dataPointer = 0; // keeps track of which point we are recording for indexing
-    while(keepPolling) {
+    while (keepPolling) {
       //System.out.println(dataPointer);  //used to debugging
 
       // when we hit 20 points we are done and leaving the loop
       // in this case  setting keepPolling to false is not necessary, but this was created
-      // for when this class will be properly implemented then all exits will be via while conditional
-      // and not breaking from loop, the break is simply a short-circuit could be a continue as well.
+      // for when this class will be properly implemented then all exits will be via while
+      // conditional and not breaking from loop, the break is simply a short-circuit could
+      // be a continue as well.
       if (dataPointer >= 20) {
-        keepPolling=false;
+        keepPolling = false;
         break;
       }
       // generate fake data
@@ -56,10 +57,10 @@ public class DataCollector implements Runnable{
       postData(data[dataPointer]);
       dataPointer++;
 
-      // a sleep is here simply to slow down the simulation for a more realistic affect, in real life
-      // data point are generated considerably slower than this loop executes. 100millis works nicely
-      // and looks more realistic. At zero, we get to really make sure the threads are communicating safely,
-      // so it's a good test.
+      // a sleep is here simply to slow down the simulation for a more realistic affect, in real
+      // life data point are generated considerably slower than this loop executes. 100millis works
+      // nicely and looks more realistic. At zero, we get to really make sure the threads are
+      // communicating safely, so it's a good test.
       try {
         Thread.sleep(0);
       } catch (InterruptedException e) {
@@ -76,13 +77,13 @@ public class DataCollector implements Runnable{
    * Update the main thread data structure, so it has access to it.
    * @param data the datapoint to update.
    */
-  private void postData(int[] data){
+  private void postData(int[] data) {
     AnalyzerApp.getAnalyzerApp().updateData(data);
   }
 
   /**
-   * Stop the loop from continuing. If we had a stop procedure this would kill the loop, and effectively ending  this
-   * thread.
+   * Stop the loop from continuing. If we had a stop procedure this would kill the loop, and
+   * effectively ending this thread.
    */
   public synchronized void stopPolling() {
     keepPolling = false;

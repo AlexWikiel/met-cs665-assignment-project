@@ -1,7 +1,6 @@
 package edu.bu.met.cs665.app.configuration.types;
 
 import edu.bu.met.cs665.app.configuration.Iterable;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -20,9 +19,9 @@ public class SystemConfig implements Iterable<Routine> {
 
   /**
    * Adds a new routine to the system configuration.
-   * @param name
+   * @param name of routine.
    */
-  public void addRoutine(String name){
+  public void addRoutine(String name) {
     routines.put(name,new Routine());
     routineOrder.add(name);
     setRoutineName(name,name);
@@ -30,9 +29,9 @@ public class SystemConfig implements Iterable<Routine> {
 
   /**
    * Returns a routine found by the StringKey in the hashmap.
-   * @param name
+   * @param name of routine
    */
-  public Routine getRoutine(String name){
+  public Routine getRoutine(String name) {
     return routines.get(name);
   }
 
@@ -41,17 +40,17 @@ public class SystemConfig implements Iterable<Routine> {
    * @param routine the routine to update
    * @param name the name to update
    */
-  public void setRoutineName(String routine,String name){
+  public void setRoutineName(String routine,String name) {
     routines.get(routine).setName(name);
   }
 
   /**
    * Set the path in routine object that holds teh routine file.
-   * TODO This file/path does not currently exist and data is faked in this project.
+   * This file/path does not currently exist and data is faked in this project.
    * @param routine the routine to update
    * @param path the path to update
    */
-  public void setRoutinePath(String routine,String path){
+  public void setRoutinePath(String routine,String path) {
     routines.get(routine).setPath(path);
   }
 
@@ -61,7 +60,7 @@ public class SystemConfig implements Iterable<Routine> {
    * @param routine the routine to update
    * @param code the path to update
    */
-  public void setRoutineCode(String routine, String code){
+  public void setRoutineCode(String routine, String code) {
     routines.get(routine).setCode(code);
   }
 
@@ -79,16 +78,16 @@ public class SystemConfig implements Iterable<Routine> {
    */
   @Override
   public boolean hasNext() {
-    if (routineOrder.size() > 0 && iterator < routineOrder.size() )
+    if (routineOrder.size() > 0 && iterator < routineOrder.size()) {
       return true;
-    else {
+    } else {
       reset(); // reset the iterator so we can loop again
       return false;
     }
   }
 
   /**
-   * Returns the next available routine object for iterator pattern
+   * Returns the next available routine object for iterator pattern.
    * @return
    */
   @Override
@@ -99,7 +98,7 @@ public class SystemConfig implements Iterable<Routine> {
   }
 
   /**
-   * Resets the iterator pointer so the iteration can start over
+   * Resets the iterator pointer so the iteration can start over.
    */
   @Override
   public void reset() {

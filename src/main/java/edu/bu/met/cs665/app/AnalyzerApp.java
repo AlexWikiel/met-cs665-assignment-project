@@ -5,11 +5,11 @@ import edu.bu.met.cs665.app.configuration.ConfigDirector;
 import edu.bu.met.cs665.app.configuration.Configuration;
 import edu.bu.met.cs665.app.configuration.types.Routine;
 import edu.bu.met.cs665.app.configuration.types.SystemConfig;
-
 import java.util.ArrayList;
 
 /**
- * The brain that connects all the other parts together, this is the main hub of the entire analyzer.
+ * The brain that connects all the other parts together, this is the main hub of the entire
+ * analyzer.
  */
 public class AnalyzerApp {
 
@@ -37,7 +37,7 @@ public class AnalyzerApp {
    * Returns the system configuration object that hold the analysis specs.
    * @return SystemConfig object
    */
-  public SystemConfig getConfig(){
+  public SystemConfig getConfig() {
     return config;
   }
 
@@ -56,12 +56,12 @@ public class AnalyzerApp {
    * builds the data structure to get it ready to receive data.
    */
   public void initDataStructure() {
-   data = new ArrayList<int[]>();
+    data = new ArrayList<int[]>();
   }
 
   /**
-   * We need to get the analyzer ready.  This method will tell the analyzer to read-in and build the system
-   * configuration object
+   * We need to get the analyzer ready.  This method will tell the analyzer to read-in and build
+   * the system configuration object
    */
   private static void initialize() {
     analyzerApp = new AnalyzerApp();
@@ -92,7 +92,7 @@ public class AnalyzerApp {
 
   /**
    * Takes the routines and runs each procedure individually.
-   * @param routine
+   * @param routine contains the procedures.
    */
   public void startRoutineProcessor(Routine routine) {
     Thread routineThread = new Thread(new RoutineProcessor(routine));

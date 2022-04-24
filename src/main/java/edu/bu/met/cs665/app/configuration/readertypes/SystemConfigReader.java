@@ -3,7 +3,8 @@ package edu.bu.met.cs665.app.configuration.readertypes;
 import edu.bu.met.cs665.app.configuration.types.SystemConfig;
 
 /**
- * This class reads main configuration. This is a fake implementation for this project to create dummy data.
+ * This class reads main configuration. This is a fake implementation for this project to create
+ * dummy data.
  */
 public class SystemConfigReader {
   private SystemConfig systemConfig;
@@ -12,6 +13,10 @@ public class SystemConfigReader {
     this.systemConfig = systemConfig;
   }
 
+  /**
+   * Read the system configuration file.  This creates a fake list of routines that can be run
+   * as a simulation.
+   */
   public void read() {
     systemConfig.addRoutine("fakeAnalysis_1");
     systemConfig.setRoutinePath("fakeAnalysis_1","c:\\fake\\RoutinePath1");

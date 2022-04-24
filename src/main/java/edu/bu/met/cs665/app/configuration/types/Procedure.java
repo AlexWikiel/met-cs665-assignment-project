@@ -3,8 +3,9 @@ package edu.bu.met.cs665.app.configuration.types;
 import edu.bu.met.cs665.app.configuration.Iterable;
 
 /**
- * The class holds information about the entire procedure, including name and path plus the procedure events that
- * make it up.  We utilize the iterator pattern to make iteration of the procedure events simpler.
+ * The class holds information about the entire procedure, including name and path plus the
+ * procedure events that make it up.  We utilize the iterator pattern to make iteration of the
+ * procedure events simpler.
  */
 public class Procedure implements Iterable {
 
@@ -12,7 +13,8 @@ public class Procedure implements Iterable {
   private String path;
   private ProcedureEvent[] procedureEvents;
 
-  // Iterator serves as the index of which item we are currently viewing and is necessary for the iterator pattern
+  // Iterator serves as the index of which item we are currently viewing and is necessary for
+  // the iterator pattern
   int iterator = 0;
 
   public String getName() {
@@ -47,7 +49,7 @@ public class Procedure implements Iterable {
    */
   public void createProcedureEvents(int count) {
     this.procedureEvents = new ProcedureEvent[count];
-    for (int i=0; i<count; i++){
+    for (int i = 0; i < count; i++) {
       this.procedureEvents[i] = new ProcedureEvent();
     }
   }
@@ -58,7 +60,7 @@ public class Procedure implements Iterable {
    */
   @Override
   public boolean hasNext() {
-    if (procedureEvents.length > 0 && iterator < procedureEvents.length ) {
+    if (procedureEvents.length > 0 && iterator < procedureEvents.length) {
       return true;
     } else {
       reset(); // reset the iterator so we can loop again

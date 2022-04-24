@@ -6,6 +6,6 @@ public interface StatusInformer {
 
   void detach(Listener listener);
 
-  void update(String Update);
+  void update(String update);
 
 }

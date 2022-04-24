@@ -1,8 +1,8 @@
 package edu.bu.met.cs665.app.configuration.types;
 
 /**
- * This class holds the file paths of the files that would need to be transmitted to the analyzer.  These files hold all
- * the parameters to run an experiment.
+ * This class holds the file paths of the files that would need to be transmitted to the analyzer.
+ * These files hold all the parameters to run an experiment.
  */
 public class ProcedureEvent {
 

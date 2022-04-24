@@ -8,13 +8,14 @@ import edu.bu.met.cs665.app.configuration.types.Routine;
 import edu.bu.met.cs665.app.configuration.types.SystemConfig;
 
 /**
- * The class that will build the SystemConfig object via the specified readers.  This utilizes the builder pattern
+ * The class that will build the SystemConfig object via the specified readers.  This utilizes
+ * the builder pattern.
  */
 public class ConfigBuilder implements Configuration {
   private SystemConfig systemConfig;
 
   /**
-   * Init and read the system configuration
+   * Init and read the system configuration.
    */
   @Override
   public void readSystemConfig() {
@@ -24,12 +25,12 @@ public class ConfigBuilder implements Configuration {
   }
 
   /**
-   * Init and read all the routines specified in the system configuration
+   * Init and read all the routines specified in the system configuration.
    */
   @Override
   public void readRoutine() {
     int counter = 1; // used to create fake path
-    while (systemConfig.hasNext()){
+    while (systemConfig.hasNext()) {
       Routine routine = systemConfig.getNext();
       RoutineReader routineReader = new RoutineReader(routine);
       routineReader.read();
@@ -37,7 +38,7 @@ public class ConfigBuilder implements Configuration {
   }
 
   /**
-   * Init and read all the procedures specified in the routines
+   * Init and read all the procedures specified in the routines.
    */
   @Override
   public void readProcedure() {

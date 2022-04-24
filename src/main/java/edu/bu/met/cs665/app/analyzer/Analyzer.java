@@ -3,14 +3,16 @@ package edu.bu.met.cs665.app.analyzer;
 import edu.bu.met.cs665.app.configuration.types.ProcedureEvent;
 
 /**
- * Represents equipment this app can use to complete the analysis.  The equipment must accept some parameters for an
- * experiment and then must be able to start and experiment, and we must be able to retrieve data from the experiment.
+ * Represents equipment this app can use to complete the analysis.  The equipment must accept some
+ * parameters for an experiment and then must be able to start and experiment, and we must be able
+ * to retrieve data from the experiment.
  */
 public abstract class Analyzer {
   protected ProcedureEvent procedureEvent;
 
   /**
-   * Inject the procedure event which contains paths to the text files that contain the experimental conditions.
+   * Inject the procedure event which contains paths to the text files that contain the experimental
+   * conditions.
    * @param procedureEvent structure that contains file paths to the experimental conditions.
    */
   public Analyzer(ProcedureEvent procedureEvent) {
@@ -23,8 +25,8 @@ public abstract class Analyzer {
   public abstract void loadExperiment();
 
   /**
-   * Start the experiment.  In this project this is just simulated data, but in a real project we would this starts an
-   * external program.
+   * Start the experiment.  In this project this is just simulated data, but in a real project we
+   * would this starts an external program.
    */
   public abstract void startExperiment();
 
@@ -34,9 +36,10 @@ public abstract class Analyzer {
   public abstract void stopExperiment();  // This is not implemented
 
   /**
-   * Spin up a thread to ping the external equipment to get data back.  This is simulated in this project and just spins
-   * up a thread that will create fake data using the random function.  This data is communicated back to the
-   * AnalyzerApp singleton using a lock to maintain thread safety.
+   * Spin up a thread to ping the external equipment to get data back.  This is simulated in this
+   * project and just spins up a thread that will create fake data using the random function.
+   * This data is communicated back to the AnalyzerApp singleton using a lock to maintain thread
+   * safety.
    */
   public abstract void collectData();
 

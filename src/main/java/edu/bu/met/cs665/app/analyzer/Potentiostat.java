@@ -5,16 +5,16 @@ import edu.bu.met.cs665.app.SystemStatus;
 import edu.bu.met.cs665.app.configuration.types.ProcedureEvent;
 
 /**
- * A potentiostat controls an electrochemical experiment. To run an experiment must be loaded nad started. Once the
- * experiment is running data can be collected from the controller.
+ * A potentiostat controls an electrochemical experiment. To run an experiment must be loaded nad
+ * started. Once the experiment is running data can be collected from the controller.
  */
-public class Potentiostat extends Analyzer{
+public class Potentiostat extends Analyzer {
 
   private Thread dataCollectorThread;
 
   /**
    * Inject ProcedureEvent, which contains the paths to the experimental condition files.
-   * @param procedureEvent
+   * @param procedureEvent contains the experimental conditions.
    */
   public Potentiostat(ProcedureEvent procedureEvent) {
     super(procedureEvent);
@@ -25,7 +25,8 @@ public class Potentiostat extends Analyzer{
    */
   @Override
   public void loadExperiment() {
-    ExperimentLoader experimentLoader = new ExperimentLoader(new LoadInstrumentState(procedureEvent));
+    ExperimentLoader experimentLoader =
+            new ExperimentLoader(new LoadInstrumentState(procedureEvent));
     // Execute all loading all files
     while (AnalyzerStatus.getAnalyzerStatus().getSystemStatus() != SystemStatus.uploadStep) {
       experimentLoader.execute();
@@ -42,7 +43,7 @@ public class Potentiostat extends Analyzer{
   }
 
   /**
-   * E-stop in the event we must stop the controller and DataCollector thread
+   * E-stop in the event we must stop the controller and DataCollector thread.
    */
   @Override
   public void stopExperiment() {

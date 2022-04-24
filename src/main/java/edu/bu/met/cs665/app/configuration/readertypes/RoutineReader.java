@@ -4,7 +4,8 @@ import edu.bu.met.cs665.app.configuration.types.Procedure;
 import edu.bu.met.cs665.app.configuration.types.Routine;
 
 /**
- * This class reads routine file.  This is a fake implementation for this project to create dummy data.
+ * This class reads routine file.  This is a fake implementation for this project to create
+ * dummy data.
  */
 public class RoutineReader {
   private Routine routine;
@@ -13,10 +14,13 @@ public class RoutineReader {
     this.routine = routine;
   }
 
+  /**
+   * Read the routine file.  This just creates fake paths for procedure files.
+   */
   public void read() {
     routine.createProcedures(5);
     int pathIndex = 1; // Only to generate fake names
-    while(routine.hasNext()) {
+    while (routine.hasNext()) {
       Procedure procedure = routine.getNext();
       procedure.setName("fakeProcedure_" + pathIndex);
       procedure.setPath("c:\\fake\\routine\\procedure" + pathIndex);

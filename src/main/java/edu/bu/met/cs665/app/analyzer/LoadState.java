@@ -13,7 +13,7 @@ public abstract class LoadState extends TextFileReader {
 
   /**
    * Inject the procedureEvent needed for running this experiment.
-   * @param procedureEvent
+   * @param procedureEvent contains the experimental conditions.
    */
   public LoadState(ProcedureEvent procedureEvent) {
     this.procedureEvent = procedureEvent;
