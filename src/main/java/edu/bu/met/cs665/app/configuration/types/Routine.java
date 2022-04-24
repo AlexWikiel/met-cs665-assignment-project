@@ -59,14 +59,6 @@ public class Routine implements Iterable<Procedure> {
   }
 
   /**
-   * returns the array that holds all the procedures for this routine.
-   * @return procedure array
-   */
-  public Procedure[] getProcedures() {
-    return procedures;
-  }
-
-  /**
    * sizes the array that hold procedures and initializes each object.
    * @param count number of procedure
    */

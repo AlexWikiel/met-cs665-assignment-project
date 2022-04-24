@@ -29,28 +29,16 @@ public class RoutineTest {
     assertEquals("test", routine.getName());
   }
 
-
   @Test
   public void getCode() {
     routine.setCode("testCode");
     assertEquals("testCode", routine.getCode());
   }
 
-
-
   @Test
   public void getPath() {
     routine.setPath("testPath");
     assertEquals("testPath", routine.getPath());
-  }
-
-
-
-  @Test
-  public void getProcedures() {
-    routine.createProcedures(5);
-    Procedure[] procedures = routine.getProcedures();
-    assertEquals(5,procedures.length);
   }
 
   @Test

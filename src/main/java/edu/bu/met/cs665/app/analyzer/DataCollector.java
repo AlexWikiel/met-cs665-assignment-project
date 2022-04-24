@@ -13,7 +13,7 @@ import java.util.Random;
 public class DataCollector implements Runnable{
   // used for fake data creation
   private Random random = new Random();
-  private final int  bound = 200;
+  private static final int BOUND = 200;
 
   // data structure
   private int[][] data;
@@ -45,8 +45,8 @@ public class DataCollector implements Runnable{
         break;
       }
       // generate fake data
-      int chOne = this.random.nextInt(bound);
-      int chTwo = this.random.nextInt(bound);
+      int chOne = this.random.nextInt(BOUND);
+      int chTwo = this.random.nextInt(BOUND);
       // record fake data
       data[dataPointer][0] = dataPointer + 1; // fake position but not zero-indexed
       data[dataPointer][1] = chOne; // fake ch1 data

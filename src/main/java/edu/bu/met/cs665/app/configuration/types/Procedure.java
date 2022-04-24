@@ -42,14 +42,6 @@ public class Procedure implements Iterable {
   }
 
   /**
-   * returns the array that holds all the procedure events for this procedure.
-   * @return procedure events array
-   */
-  public ProcedureEvent[] getProcedureEvents() {
-    return procedureEvents;
-  }
-
-  /**
    * sizes the array that hold procedure events and initializes each object.
    * @param count number of procedure events
    */
