@@ -1,7 +1,10 @@
 # AnalyzerApp
 
 # GitHub Link:
+https://github.com/metcs/met-cs665-assignment-project-AlexWikiel.git
 
+# Presentation Link
+https://drive.google.com/file/d/1VbZjedwU13NkGFI76mi8VJEAhMN60kzp/view?usp=sharing
 
 # Application Description
 
@@ -35,6 +38,9 @@
 
 # Analyzer App Class Diagram
 ![AnalyzerApp.jpg](AnalyzerApp.jpg)
+
+# Run application
+Run application from ConsoleDisplay class main method
 
 # Project Template
 

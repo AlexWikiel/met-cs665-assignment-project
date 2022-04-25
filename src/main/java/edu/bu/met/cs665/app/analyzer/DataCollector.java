@@ -62,7 +62,7 @@ public class DataCollector implements Runnable {
       // nicely and looks more realistic. At zero, we get to really make sure the threads are
       // communicating safely, so it's a good test.
       try {
-        Thread.sleep(0);
+        Thread.sleep(100);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
